@@ -23,7 +23,7 @@ public class ChatGptApiManager {
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static final OkHttpClient client = new OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
             .build();
     private static final String MODEL_ID = "gpt-3.5-turbo";
     private WriteStudentFragment fragment;
@@ -63,7 +63,7 @@ public class ChatGptApiManager {
 
         Request request = new Request.Builder()
                 .url(API_ENDPOINT)
-                .addHeader("Authorization", "Bearer " + "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")
+                .addHeader("Authorization", "Bearer " + "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")
                 .post(body)
                 .build();
 

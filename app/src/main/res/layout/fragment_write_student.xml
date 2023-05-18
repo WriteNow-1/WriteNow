@@ -39,6 +39,7 @@
             app:layout_constraintVertical_bias="0.162" />
 
         <EditText
+            android:id="@+id/editMajor"
             android:layout_width="380dp"
             android:layout_height="50dp"
             android:hint="컴퓨터공학과"
@@ -112,6 +113,7 @@
             app:layout_constraintVertical_bias="0.686" />
 
         <EditText
+            android:id="@+id/editNuance"
             android:layout_width="380dp"
             android:layout_height="50dp"
             android:hint="말투는 진중하고 지원동기는 자세하게 작성"

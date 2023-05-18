@@ -14,7 +14,10 @@ import android.widget.Toast;
 import com.example.writenow.R;
 
 public class WriteStudentFragment extends Fragment {
-    private EditText userInputEditText;
+    private EditText userInputMajor;
+    private EditText userInputEditText1;
+    private EditText userInputEditText2;
+    private EditText userInputNuance;
     private Button submitButton;
     private static final String TAG = "WriteStudentFragment";
 
@@ -24,7 +27,11 @@ public class WriteStudentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_write_student, container, false);
-        userInputEditText = view.findViewById(R.id.editText);
+        userInputMajor = view.findViewById(R.id.editMajor);
+        userInputEditText1 = view.findViewById(R.id.editText);
+        userInputEditText2 = view.findViewById(R.id.editText2);
+        userInputNuance = view.findViewById(R.id.editNuance);
+
         submitButton = view.findViewById(R.id.appCompatButton);
 
         chatGptApiManager = new ChatGptApiManager(this); // ChatGptApiManager 생성 시 WriteStudentFragment 참조 전달
@@ -32,9 +39,15 @@ public class WriteStudentFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String userInput = userInputEditText.getText().toString();
-                Toast.makeText(getActivity(), "사용자 입력: " + userInput, Toast.LENGTH_SHORT).show();
-                sendUserInputToChatGpt(userInput);
+                String userMajor = userInputMajor.getText().toString();
+                String userInput1 = userInputEditText1.getText().toString();
+                String userInput2 = userInputEditText2.getText().toString();
+                String userNuance = userInputNuance.getText().toString();
+                Toast.makeText(getActivity(), "사용자 입력: "+"\n전공:"+userMajor+"\n1:"+userInput1+"\n2:"+userInput2+"\n요청사항:"+userNuance, Toast.LENGTH_SHORT).show();
+                sendUserInputToChatGpt("지원학과:"+userMajor
+                        +"다음은 진로와 관련된 학습 경험혹은 교내 활동이다:"+userInput1
+                        +"그리고 배운 점은 다음과 같다:"+userInput2
+                        + "이를 가지고 고등학교 재학 기간 진로와 관련하여 어떤 노력을 해왔는지 본인에게 의미 있는 학습 경험과 교내 활동을 다음과 같은 요청사항을 중심으로 기술해달라:"+ userNuance);
             }
         });
         return view;

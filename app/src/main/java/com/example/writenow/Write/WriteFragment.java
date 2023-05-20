@@ -51,7 +51,7 @@ public class WriteFragment extends Fragment {
                 WriteStudentFragment writeStudentFragment = new WriteStudentFragment();
 
                 // Fragment 전환을 위한 FragmentTransaction 시작
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
 
                 // WriteStudentFragment를 컨테이너에 추가
                 fragmentTransaction.replace(R.id.main_frame, writeStudentFragment);
@@ -62,6 +62,8 @@ public class WriteFragment extends Fragment {
         });
 
 
+
+
         return view;
     }
 
@@ -69,7 +71,7 @@ public class WriteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 

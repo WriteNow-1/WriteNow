@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 else if (id == R.id.nav_write){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new WriteStudentFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new WriteFragment()).commit();
                     return true;
                 }
                 else if (id == R.id.nav_star){

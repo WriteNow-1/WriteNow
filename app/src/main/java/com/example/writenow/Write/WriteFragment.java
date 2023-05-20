@@ -47,8 +47,20 @@ public class WriteFragment extends Fragment {
         StudentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // WriteStudentFragment 인스턴스 생성
+                WriteStudentFragment writeStudentFragment = new WriteStudentFragment();
+
+                // Fragment 전환을 위한 FragmentTransaction 시작
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+                // WriteStudentFragment를 컨테이너에 추가
+                fragmentTransaction.replace(R.id.main_frame, writeStudentFragment);
+
+                // FragmentTransaction 완료
+                fragmentTransaction.commit();
             }
         });
+
 
         return view;
     }

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.writenow.R;
+import android.widget.TextView;
+import android.content.Intent;
 
 public class WriteStudentFragment extends Fragment {
     private EditText userInputMajor;
@@ -22,6 +24,8 @@ public class WriteStudentFragment extends Fragment {
     private static final String TAG = "WriteStudentFragment";
 
     private ChatGptApiManager chatGptApiManager;
+    private TextView responseTextView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +39,7 @@ public class WriteStudentFragment extends Fragment {
         submitButton = view.findViewById(R.id.appCompatButton);
 
         chatGptApiManager = new ChatGptApiManager(this); // ChatGptApiManager 생성 시 WriteStudentFragment 참조 전달
+
 
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -66,7 +71,9 @@ public class WriteStudentFragment extends Fragment {
             @Override
             public void run() {
                 if (response != null) {
-                    Toast.makeText(getActivity(), "ChatGPT 응답: " + response, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), ResultActivity.class);
+                    intent.putExtra("result", response);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getActivity(), "ChatGPT API 요청 실패", Toast.LENGTH_SHORT).show();
                 }

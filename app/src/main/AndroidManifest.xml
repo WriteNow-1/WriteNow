@@ -28,6 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Write.ResultActivity"
+            android:label="Result Activity">
+        </activity>
+
     </application>
 
 </manifest>

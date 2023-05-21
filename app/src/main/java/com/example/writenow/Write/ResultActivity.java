@@ -1,16 +1,21 @@
 package com.example.writenow.Write;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.TextView;
-import android.widget.EditText;
-import android.text.Editable;
-import android.text.TextWatcher;
+
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.writenow.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.example.writenow.R;
+import android.text.Editable;
+import android.text.TextWatcher;
 
 public class ResultActivity extends AppCompatActivity {
     private EditText resultEditText;
@@ -51,13 +56,44 @@ public class ResultActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // EditText에서 결과 텍스트를 가져와서 Firebase에 저장하는 코드 추가
+                showPopupDialog();
+            }
+        });
+    }
+
+    private void showPopupDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_save, null);
+        builder.setView(dialogView);
+
+        final EditText universityEditText = dialogView.findViewById(R.id.universityEditText);
+        final EditText questionNumberEditText = dialogView.findViewById(R.id.questionNumberEditText);
+        Button saveButton = dialogView.findViewById(R.id.saveButton);
+
+        AlertDialog dialog = builder.create();
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 대학교 이름과 문항 번호 가져오기
+                String university = universityEditText.getText().toString();
+                String questionNumber = questionNumberEditText.getText().toString();
+
+                // EditText에서 결과 텍스트를 가져옴
                 String resultText = resultEditText.getText().toString();
 
                 // 결과를 Firebase에 저장하는 코드 작성
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("결과");
-                databaseReference.setValue(resultText);
+                DatabaseReference universityRef = databaseReference.child(university);
+                universityRef.child(questionNumber).child("결과").setValue(resultText);
+
+                Toast.makeText(ResultActivity.this, "저장되었습니다.", Toast.LENGTH_SHORT).show();
+
+                dialog.dismiss();
             }
         });
+
+        dialog.show();
     }
 }

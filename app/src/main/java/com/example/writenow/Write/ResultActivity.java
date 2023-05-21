@@ -1,10 +1,15 @@
 package com.example.writenow.Write;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.os.Bundle;
+import android.widget.Button;
+import android.view.View;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.example.writenow.R;
 
 public class ResultActivity extends AppCompatActivity {
@@ -40,5 +45,19 @@ public class ResultActivity extends AppCompatActivity {
         // API로부터 받아온 결과를 편집기에 설정
         String result = getIntent().getStringExtra("result");
         resultEditText.setText(result);
+
+        // 저장 버튼 클릭 이벤트 처리
+        Button saveButton = findViewById(R.id.saveButton);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // EditText에서 결과 텍스트를 가져와서 Firebase에 저장하는 코드 추가
+                String resultText = resultEditText.getText().toString();
+
+                // 결과를 Firebase에 저장하는 코드 작성
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("결과");
+                databaseReference.setValue(resultText);
+            }
+        });
     }
 }

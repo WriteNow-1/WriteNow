@@ -15,6 +15,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.example.writenow.Home.HomeFragment;
 import com.example.writenow.Set.SetFragment;
 import com.example.writenow.Star.StarFragment;
@@ -24,7 +26,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference();
     HomeFragment homeFragment;
     WriteFragment writeFragment;
     StarFragment starFragment;

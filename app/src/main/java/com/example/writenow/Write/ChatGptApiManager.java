@@ -63,7 +63,7 @@ public class ChatGptApiManager {
 
         Request request = new Request.Builder()
                 .url(API_ENDPOINT)
-                .addHeader("Authorization", "Bearer " + "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")
+                .addHeader("Authorization", "Bearer " + "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")
                 .post(body)
                 .build();
 

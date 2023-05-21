@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/resultEditText"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         android:inputType="textMultiLine"
         android:minLines="4"
         android:gravity="top|start"
@@ -22,5 +22,12 @@
         android:layout_marginTop="8dp"
         android:text="글자 수: 0"
         android:textSize="16sp" />
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/characterCountTextView"
+        android:layout_marginTop="16dp"
+        android:text="저장" />
 
 </RelativeLayout>

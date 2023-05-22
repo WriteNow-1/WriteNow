@@ -2,25 +2,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp">
 
     <EditText
         android:id="@+id/universityEditText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="대학교 이름을 입력하세요" />
+        android:layout_height="50sp"
+        android:hint="대학교 이름을 입력하세요"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/questionNumberEditText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="문항 번호를 입력하세요" />
+        android:layout_height="50sp"
+        android:hint="문항 번호를 입력하세요"
+        tools:ignore="SpeakableTextPresentCheck"/>
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="저장" />
+        android:orientation="horizontal"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/CancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="취소"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/saveButton"
+            android:background="@drawable/button"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="145sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="저장" />
+
+
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

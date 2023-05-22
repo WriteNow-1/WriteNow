@@ -18,25 +18,37 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/subjectButton1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="1" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/subjectButton2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="2" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/freetextButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="자율문항" />
 
     </LinearLayout>

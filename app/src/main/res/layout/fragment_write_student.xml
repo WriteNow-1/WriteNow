@@ -18,7 +18,8 @@
             app:tabIndicatorColor="@color/main"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/main"
-            app:tabTextColor="@color/gray">
+            app:tabTextColor="@color/gray"
+            tools:ignore="MissingConstraints">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tabItem1"
@@ -45,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            tools:ignore="SpeakableTextPresentCheck"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -59,6 +59,15 @@ public class ResultActivity extends AppCompatActivity {
                 showPopupDialog();
             }
         });
+
+        Button cancelButton = findViewById(R.id.CancelButton);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 finish();
+            }
+        });
     }
 
     private void showPopupDialog() {
@@ -70,6 +79,7 @@ public class ResultActivity extends AppCompatActivity {
         final EditText universityEditText = dialogView.findViewById(R.id.universityEditText);
         final EditText questionNumberEditText = dialogView.findViewById(R.id.questionNumberEditText);
         Button saveButton = dialogView.findViewById(R.id.saveButton);
+        Button cancelButton = dialogView.findViewById(R.id.CancelButton);
 
         AlertDialog dialog = builder.create();
 
@@ -90,6 +100,13 @@ public class ResultActivity extends AppCompatActivity {
 
                 Toast.makeText(ResultActivity.this, "저장되었습니다.", Toast.LENGTH_SHORT).show();
 
+                dialog.dismiss();
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 dialog.dismiss();
             }
         });

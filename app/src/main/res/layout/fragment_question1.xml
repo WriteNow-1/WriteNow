@@ -9,6 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
         >
 
         <TextView
@@ -42,7 +43,7 @@
             android:id="@+id/editMajor"
             android:layout_width="380dp"
             android:layout_height="50dp"
-            android:hint="컴퓨터공학과"
+            android:text="컴퓨터공학과"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.483"
@@ -67,7 +68,7 @@
             android:id="@+id/editText"
             android:layout_width="380dp"
             android:layout_height="50dp"
-            android:hint="IT 창업 동아리를 만들고, 1년동안 운영자로 활동"
+            android:text="IT 창업 동아리를 만들고, 1년동안 운영자로 활동"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.483"
@@ -91,7 +92,7 @@
             android:id="@+id/editText2"
             android:layout_width="380dp"
             android:layout_height="50dp"
-            android:hint="조직을 이뤄, 혼자서 이뤄낼 수 없는 성과를 이룸"
+            android:text="조직을 이뤄, 혼자서 이뤄낼 수 없는 성과를 이룸"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.516"
@@ -116,7 +117,7 @@
             android:id="@+id/editNuance"
             android:layout_width="380dp"
             android:layout_height="50dp"
-            android:hint="말투는 진중하고 지원동기는 자세하게 작성"
+            android:text="말투는 진중하고 지원동기는 자세하게 작성"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.483"

@@ -25,12 +25,15 @@ public class ChatGptApiManager {
             .build();
     private static final String MODEL_ID = "gpt-3.5-turbo";
     private QuestionpageAdapter adapter;
+
     private WriteStudentFragment writeStudentFragment;
+
 
     public ChatGptApiManager(QuestionpageAdapter adapter, WriteStudentFragment writeStudentFragment) {
         this.adapter = adapter;
         this.writeStudentFragment = writeStudentFragment;
     }
+
 
     public void sendUserInputToChatGpt(String userInput, int questionNumber) {
         JSONArray messagesArray = new JSONArray();
@@ -63,7 +66,7 @@ public class ChatGptApiManager {
 
         Request request = new Request.Builder()
                 .url(API_ENDPOINT)
-                .addHeader("Authorization", "Bearer " + "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")
+                .addHeader("Authorization", "Bearer " + "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")
                 .post(body)
                 .build();
 

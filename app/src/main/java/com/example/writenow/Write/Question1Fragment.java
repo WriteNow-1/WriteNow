@@ -22,7 +22,6 @@ public class Question1Fragment extends Fragment {
     private EditText userInputMajor;
     private EditText userInputEditText1;
     private EditText userInputEditText2;
-    private EditText userInputNuance;
     private Button submitButton;
 
     private ChatGptApiManager chatGptApiManager;
@@ -34,7 +33,6 @@ public class Question1Fragment extends Fragment {
         userInputMajor = view.findViewById(R.id.editMajor);
         userInputEditText1 = view.findViewById(R.id.editText);
         userInputEditText2 = view.findViewById(R.id.editText2);
-        userInputNuance = view.findViewById(R.id.editNuance);
         submitButton = view.findViewById(R.id.submitButton);
 
         WriteStudentFragment parentFragment = (WriteStudentFragment) getParentFragment();
@@ -47,12 +45,11 @@ public class Question1Fragment extends Fragment {
                 String userMajor = userInputMajor.getText().toString();
                 String userInput1 = userInputEditText1.getText().toString();
                 String userInput2 = userInputEditText2.getText().toString();
-                String userNuance = userInputNuance.getText().toString();
-                Toast.makeText(getActivity(), "사용자 입력: "+"\n전공:"+userMajor+"\n1:"+userInput1+"\n2:"+userInput2+"\n요청사항:"+userNuance, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "사용자 입력: "+"\n전공:"+userMajor+"\n1:"+userInput1+"\n2:"+userInput2, Toast.LENGTH_SHORT).show();
                 sendUserInputToChatGpt("지원학과:"+userMajor
                         +"다음은 진로와 관련된 학습 경험혹은 교내 활동이다:"+userInput1
                         +"그리고 배운 점은 다음과 같다:"+userInput2
-                        + "이를 가지고 고등학교 재학 기간 진로와 관련하여 어떤 노력을 해왔는지 본인에게 의미 있는 학습 경험과 교내 활동을 다음과 같은 요청사항을 중심으로 기술해달라:"+ userNuance);
+                        + "이를 가지고 고등학교 재학 기간 진로와 관련하여 어떤 노력을 해왔는지 본인에게 의미 있는 학습 경험과 교내 활동을 기술해달라:");
 
             }
         });

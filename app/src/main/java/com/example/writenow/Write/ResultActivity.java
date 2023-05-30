@@ -3,7 +3,9 @@ package com.example.writenow.Write;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
 
         resultEditText = findViewById(R.id.resultEditText);
         characterCountTextView = findViewById(R.id.characterCountTextView);
@@ -51,6 +54,9 @@ public class ResultActivity extends AppCompatActivity {
         String result = getIntent().getStringExtra("result");
         resultEditText.setText(result);
 
+        String response = getIntent().getStringExtra("response");
+        resultEditText.setText(response);
+
         // 저장 버튼 클릭 이벤트 처리
         Button saveButton = findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -65,10 +71,20 @@ public class ResultActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 finish();
+                finish();
+            }
+        });
+
+        Button changeButton = findViewById(R.id.ChangeButton);
+
+        changeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChangePopupDialog();
             }
         });
     }
+
 
     private void showPopupDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -104,6 +120,7 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
+
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,4 +130,46 @@ public class ResultActivity extends AppCompatActivity {
 
         dialog.show();
     }
+
+    private void ChangePopupDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_change, null);
+        builder.setView(dialogView);
+
+        final EditText changeEditText = dialogView.findViewById(R.id.ChangeEditText);
+        Button saveButton = dialogView.findViewById(R.id.ChangeButton);
+        Button cancelButton = dialogView.findViewById(R.id.CancelButton);
+
+        AlertDialog dialog = builder.create();
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 수정 요청 사항 받아오기
+                String change = changeEditText.getText().toString();
+
+                // EditText에서 결과 텍스트를 가져옴
+                String resultText = resultEditText.getText().toString();
+
+
+                Toast.makeText(ResultActivity.this, "수정되었습니다.", Toast.LENGTH_SHORT).show();
+
+                dialog.dismiss();
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+
+
+
 }

@@ -18,7 +18,9 @@ public class Question3Fragment extends Fragment {
     private EditText userInputMajor;
     private EditText userInputEditText1;
     private EditText userInputEditText2;
-    private EditText userInputNuance;
+    private EditText userInputEditText3;
+    private EditText userInputEditText4;
+    private EditText userInputQeustion;
     private Button submitButton;
 
     private ChatGptApiManager chatGptApiManager;
@@ -28,7 +30,12 @@ public class Question3Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_question3, container, false);
 
-        userInputEditText1 = view.findViewById(R.id.editText);
+        userInputQeustion = view.findViewById(R.id.editQuestion);
+        userInputEditText1 = view.findViewById(R.id.editText1);
+        userInputEditText2 = view.findViewById(R.id.editText2);
+        userInputEditText3 = view.findViewById(R.id.editText3);
+        userInputEditText4 = view.findViewById(R.id.editText4);
+
 
         submitButton = view.findViewById(R.id.submitButton);
 
@@ -39,9 +46,17 @@ public class Question3Fragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                String userInputQue = userInputEditText1.getText().toString();
                 String userInput1 = userInputEditText1.getText().toString();
+                String userInput2 = userInputEditText2.getText().toString();
+                String userInput3 = userInputEditText3.getText().toString();
+                String userInput4 = userInputEditText4.getText().toString();
                 Toast.makeText(getActivity(), "사용자 입력: "+"\n1:"+userInput1, Toast.LENGTH_SHORT).show();
-                sendUserInputToChatGpt("다음 입력을 가지고 대학별로 지원동기, 진로계획등을 추가하여 작성해라:"+userInput1);
+                sendUserInputToChatGpt("지원동기: "+ userInput1
+                + "준비상황: " + userInput2
+                + "학업계획: " + userInput3
+                + "진로계획: " + userInput4
+                +"위 내용을 바탕으로" + userInputQue +"에 대한 답변을 기술해라");
             }
         });
 

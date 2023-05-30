@@ -69,6 +69,8 @@ public class StarFragment extends Fragment {
         return button;
     }
 
+
+
     private void showSubjectButtons(final String university) {
         buttonContainer.setVisibility(View.GONE);
         LinearLayout subjectLayout = requireView().findViewById(R.id.subjectLayout);

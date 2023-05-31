@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import java.io.OutputStreamWriter;
 
 import androidx.fragment.app.Fragment;
 
@@ -34,8 +35,8 @@ import java.net.URL;
 
 public class NewQuestionFragment extends Fragment implements ChatGptResponseListener {
 
-    private static final String API_ENDPOINT = "https://api.openai.com/v1/engines/davinci-codex/completions";
-    private static final String API_KEY = "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";  // ChatGPT API 키
+    private static final String API_ENDPOINT = "https://api.openai.com/v1/engines/davinci/completions";
+    private static final String API_KEY = "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";  // ChatGPT API 키
 
     private EditText userInputEditText;
     private Button sendButton;
@@ -65,8 +66,14 @@ public class NewQuestionFragment extends Fragment implements ChatGptResponseList
                 jsonObject.put("prompt", userInput);
                 jsonObject.put("max_tokens", 50);  // 최대 응답 토큰 수
 
-                DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
-                outputStream.writeBytes(jsonObject.toString());
+                byte[] postData = jsonObject.toString().getBytes("UTF-8");
+                int postDataLength = postData.length;
+
+                connection.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+
+                // DataOutputStream 대신에 OutputStreamWriter 사용
+                OutputStreamWriter outputStream = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
+                outputStream.write(jsonObject.toString());
                 outputStream.flush();
                 outputStream.close();
 
@@ -85,7 +92,16 @@ public class NewQuestionFragment extends Fragment implements ChatGptResponseList
 
                     response = stringBuilder.toString();
                 } else {
-                    response = "Error: " + responseCode;
+                    InputStream errorStream = connection.getErrorStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(errorStream));
+                    String line;
+                    StringBuilder stringBuilder = new StringBuilder();
+
+                    while ((line = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(line);
+                    }
+
+                    response = "Error: " + responseCode + ", " + stringBuilder.toString();
                 }
 
                 connection.disconnect();
@@ -135,9 +151,16 @@ public class NewQuestionFragment extends Fragment implements ChatGptResponseList
         // ChatGPT 응답 처리
         // response를 원하는 방식으로 처리하고 출력하거나 다른 동작을 수행할 수 있습니다.
 
-        // 다른 Activity로 답변 전달
-        Intent intent = new Intent(getActivity(), ResultActivity.class);
-        intent.putExtra("response", response);
-        startActivity(intent);
+
+        if (response != null) {
+            // 응답 처리 코드
+            // 다른 Activity로 답변 전달
+            Intent intent = new Intent(getActivity(), ResultActivity.class);
+            intent.putExtra("response", response);
+            startActivity(intent);
+        } else {
+            // 응답이 null인 경우 처리할 코드
+        }
+
     }
 }

@@ -54,8 +54,11 @@ public class ResultActivity extends AppCompatActivity {
         String result = getIntent().getStringExtra("result");
         resultEditText.setText(result);
 
-        String response = getIntent().getStringExtra("response");
-        resultEditText.setText(response);
+        if (result == null){
+            String response = getIntent().getStringExtra("response");
+            resultEditText.setText(response);
+        }
+
 
         // 저장 버튼 클릭 이벤트 처리
         Button saveButton = findViewById(R.id.saveButton);

@@ -53,7 +53,7 @@ public class ResultActivity extends AppCompatActivity {
         // API로부터 받아온 결과를 편집기에 설정
         String result = getIntent().getStringExtra("result");
         resultEditText.setText(result);
-
+//
         if (result == null){
             String response = getIntent().getStringExtra("response");
             resultEditText.setText(response);

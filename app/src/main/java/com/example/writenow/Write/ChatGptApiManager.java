@@ -29,6 +29,7 @@ public class ChatGptApiManager {
     private WriteStudentFragment writeStudentFragment;
 
 
+
     public ChatGptApiManager(QuestionpageAdapter adapter, WriteStudentFragment writeStudentFragment) {
         this.adapter = adapter;
         this.writeStudentFragment = writeStudentFragment;

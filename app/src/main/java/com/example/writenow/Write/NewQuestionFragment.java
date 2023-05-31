@@ -44,7 +44,7 @@ public class NewQuestionFragment extends Fragment implements ChatGptResponseList
     private class ChatGptTask extends AsyncTask<String, Void, String> {
 
         private ChatGptResponseListener listener;
-
+//
         public ChatGptTask(ChatGptResponseListener listener) {
             this.listener = listener;
         }

@@ -33,6 +33,11 @@
             android:name=".Write.ResultActivity"
             android:label="Result Activity">
         </activity>
+
+        <activity android:name=".Write.TestActivity">
+
+
+        </activity>
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 

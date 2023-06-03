@@ -1,10 +1,10 @@
-package com.example.writenow.Write;
-
+package com.example.writenow.Write.ChatGptApi;
 import android.util.Log;
 
+import com.example.writenow.Write.QuestionpageAdapter;
+import com.example.writenow.Write.WriteStudentFragment;
+
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -17,9 +17,10 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-
-public class TestGptApiManager {
-    private static final String TAG = "TestGptApiManager";
+import org.json.JSONException;
+import org.json.JSONObject;
+public class ChatGptApiManager {
+    private static final String TAG = "ChatGptApiManager";
     private static final String API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static final OkHttpClient client = new OkHttpClient.Builder()
@@ -27,19 +28,19 @@ public class TestGptApiManager {
             .readTimeout(90, TimeUnit.SECONDS)
             .build();
     private static final String MODEL_ID = "gpt-3.5-turbo";
-    private TestpageAdapter adapter;
+    private QuestionpageAdapter adapter;
 
-    private TestFragment testFragment;
+    private WriteStudentFragment writeStudentFragment;
 
 
 
-    public TestGptApiManager(TestpageAdapter adapter, TestFragment testFragment) {
+    public ChatGptApiManager(QuestionpageAdapter adapter, WriteStudentFragment writeStudentFragment) {
         this.adapter = adapter;
-        this.testFragment = testFragment;
+        this.writeStudentFragment = writeStudentFragment;
     }
 
 
-    public void sendUserInputToChatGpt(String userInput, int testNumber) {
+    public void sendUserInputToChatGpt(String userInput, int questionNumber) {
         JSONArray messagesArray = new JSONArray();
 
         // 사용자 입력 메시지 추가
@@ -50,7 +51,7 @@ public class TestGptApiManager {
             messagesArray.put(userInputMessage);
         } catch (JSONException e) {
             Log.e(TAG, "Failed to create user input message: " + e.getMessage());
-            testFragment.handleChatGptResponse(null, testNumber);
+            writeStudentFragment.handleChatGptResponse(null, questionNumber);
             return;
         }
 
@@ -60,7 +61,7 @@ public class TestGptApiManager {
             jsonObject.put("model", MODEL_ID);
         } catch (JSONException e) {
             Log.e(TAG, "Failed to create JSON request body: " + e.getMessage());
-            testFragment.handleChatGptResponse(null, testNumber);
+            writeStudentFragment.handleChatGptResponse(null, questionNumber);
             return;
         }
 
@@ -70,7 +71,7 @@ public class TestGptApiManager {
 
         Request request = new Request.Builder()
                 .url(API_ENDPOINT)
-                .addHeader("Authorization", "Bearer " + "")
+                .addHeader("Authorization", "Bearer " + "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")
                 .post(body)
                 .build();
 
@@ -78,7 +79,7 @@ public class TestGptApiManager {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e(TAG, "ChatGPT API request failed: " + e.toString());
-                testFragment.handleChatGptResponse(null, testNumber);
+                writeStudentFragment.handleChatGptResponse(null, questionNumber);
             }
 
             @Override
@@ -104,7 +105,7 @@ public class TestGptApiManager {
                                         JSONObject messageObject = choiceObject.getJSONObject("message");
                                         if (messageObject.has("content")) {
                                             String text = messageObject.getString("content");
-                                            testFragment.handleChatGptResponse(text, testNumber);
+                                            writeStudentFragment.handleChatGptResponse(text, questionNumber);
                                             return;
                                         }
                                     }
@@ -126,7 +127,7 @@ public class TestGptApiManager {
                     }
                 }
 
-                testFragment.handleChatGptResponse(null, testNumber);
+                writeStudentFragment.handleChatGptResponse(null, questionNumber);
             }
         });
     }

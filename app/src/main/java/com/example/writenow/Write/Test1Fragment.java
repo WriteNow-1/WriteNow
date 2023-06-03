@@ -1,12 +1,7 @@
 package com.example.writenow.Write;
 
-import android.widget.TextView;
 import android.content.Intent;
 import android.util.Log;
-import android.content.Context;
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -15,13 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.writenow.R;
+import com.example.writenow.Write.ChatGptApi.TestGptApiManager;
 
 public class Test1Fragment extends Fragment {
 
-    private EditText userInputMajor;
     private EditText userInputEditText1;
     private EditText userInputEditText2;
     private EditText userInputEditText3;
@@ -49,9 +43,9 @@ public class Test1Fragment extends Fragment {
                 String userInput2 = userInputEditText2.getText().toString();
                 String userInput3 = userInputEditText3.getText().toString();
 //                Toast.makeText(getActivity(), "사용자 입력: "+"\n전공:"+userMajor+"\n1:"+userInput1+"\n2:"+userInput2, Toast.LENGTH_SHORT).show();
-                sendUserInputToChatGpt("너는 좋은 assistant야" + userInput1 + userInput2 +
-                        "자기소개서 작성을 도와줬으면 좋겠어. 자기소개서 질문은" + userInput3 + "야." +
-                        "내가 이 문항에 답하기 위해 필요한 키워드 4가지를 배열 코드로 작성해줘");
+                sendUserInputToChatGpt("너는 좋은 assistant야" + userInput1 + "에 지원을 하려고 해" +
+                        "자기소개서 작성을 도와줬으면 좋겠어. 자기소개서 질문은" + userInput2 + "야." +
+                        "이 질문에 대한 나의 정보는" + userInput3 + ". 내가 준 정보들로만 구성하여 작성을 부탁해");
             }
         });
 

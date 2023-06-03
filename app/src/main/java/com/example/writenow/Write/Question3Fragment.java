@@ -14,8 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.writenow.R;
-
-import org.w3c.dom.Text;
+import com.example.writenow.Write.ChatGptApi.ChatGptApiManager;
 
 public class Question3Fragment extends Fragment {
     private TextView textView1;

@@ -12,11 +12,12 @@
         android:layout_marginTop="20dp"
         >
 
+
         <TextView
             android:id="@+id/textView5"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:text="해당 기업의 정보와 문항을 입력해주시기 바랍니다."
+            android:text="자기소개서 문항과 필요 정보를 입력해주시기 바랍니다."
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -28,31 +29,6 @@
 
         <TextView
             android:id="@+id/textView6"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.022"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.162"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기업 이름"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/edtText1"
-            android:layout_width="380dp"
-            android:layout_height="50dp"
-            android:hint="기업명을 작성"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.227" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="지원 부서"
@@ -60,22 +36,22 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintHorizontal_bias="0.018"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintVertical_bias="0.102" />
 
         <EditText
-            android:id="@+id/edtText2"
+            android:id="@+id/edtText1"
             android:layout_width="380dp"
             android:layout_height="50dp"
-            android:hint="지원하는 부서명을 작성"
+            android:hint="지원하는 회사와 부서명을 작성"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.402" />
+            app:layout_constraintVertical_bias="0.164" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,22 +61,50 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.018"
+            app:layout_constraintHorizontal_bias="0.021"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.251" />
 
         <EditText
-            android:id="@+id/edtText3"
+            android:id="@+id/edtText2"
             android:layout_width="380dp"
             android:layout_height="50dp"
             android:hint="자기소개서 문항을 작성"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintHorizontal_bias="0.548"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.577" />
+            app:layout_constraintVertical_bias="0.322" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="문항에 대한 본인의 정보"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.018"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.411" />
+
+
+        <EditText
+            android:id="@+id/edtText3"
+            android:layout_width="380dp"
+            android:layout_height="185dp"
+            android:background="@drawable/memo"
+            android:gravity="left|top"
+            android:hint="문항에 필요한 본인의 정보를 기술(자세하게)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.697" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:gravity="center"
@@ -118,6 +122,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.935" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

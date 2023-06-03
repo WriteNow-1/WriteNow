@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.writenow.R;
+import com.example.writenow.Write.ChatGptApi.TestGptApiManager;
 
 
 public class Test3Fragment extends Fragment {

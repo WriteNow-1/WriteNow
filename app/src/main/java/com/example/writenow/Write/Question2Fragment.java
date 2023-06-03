@@ -1,6 +1,5 @@
 package com.example.writenow.Write;
 import android.util.Log;
-import android.widget.TextView;
 import android.content.Intent;
 
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.writenow.R;
+import com.example.writenow.Write.ChatGptApi.ChatGptApiManager;
 
 public class Question2Fragment extends Fragment {
     private EditText userInputMajor;

@@ -14,12 +14,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.writenow.R;
+import com.example.writenow.Write.ChatGptApi.TestGptApiManager;
 
 
 public class Test2Fragment extends Fragment {
 
     private EditText userInputEditText1;
     private EditText userInputEditText2;
+    private EditText userInputEditText3;
     private Button submitButton;
 
     private TestGptApiManager testGptApiManager;
@@ -28,13 +30,16 @@ public class Test2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_test2, container, false);
-        userInputEditText1 = view.findViewById(R.id.edtText4);
-        userInputEditText2 = view.findViewById(R.id.edtText5);
+        userInputEditText1 = view.findViewById(R.id.edtText1);
+        userInputEditText2 = view.findViewById(R.id.edtText2);
+        userInputEditText3 = view.findViewById(R.id.edtText3);
         submitButton = view.findViewById(R.id.submitButton);
 
         TestFragment parentFragment = (TestFragment) getParentFragment();
         testGptApiManager = parentFragment.getChatGptApiManager();
         // ChatGptApiManager 인스턴스를 WriteStudentFragment로부터 가져옴
+
+
 
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override

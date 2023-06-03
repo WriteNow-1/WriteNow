@@ -50,7 +50,7 @@ public class TestpageAdapter extends FragmentPagerAdapter {
             case 1:
                 return "문항 2";
             case 2:
-                return "자율문항";
+                return "문항 3";
             default:
                 return null;
         }

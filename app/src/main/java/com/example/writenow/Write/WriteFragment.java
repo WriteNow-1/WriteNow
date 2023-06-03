@@ -65,13 +65,13 @@ public class WriteFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // WriteNewFragment 인스턴스 생성
-                NewQuestionFragment newQuestionFragment = new NewQuestionFragment();
+                TestFragment testFragment = new TestFragment();
 
                 // Fragment 전환을 위한 FragmentTransaction 시작
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
 
                 // WriteNewFragment를 컨테이너에 추가
-                fragmentTransaction.replace(R.id.main_frame, newQuestionFragment);
+                fragmentTransaction.replace(R.id.main_frame, testFragment);
 
                 // FragmentTransaction 완료
                 fragmentTransaction.commit();

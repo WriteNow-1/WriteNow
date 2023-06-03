@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Write.WriteStudentFragment">
+    tools:context=".Write.Test2Fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,20 +27,21 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="타인과 공동체를 위해 노력한 경험"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:id="@+id/textView8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.022"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.162" />
+            app:layout_constraintVertical_bias="0.162"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="타인과 공동체를 위해 노력한 경험"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edtText4"
             android:layout_width="380dp"
             android:layout_height="50dp"
             android:text="학생을 가르치는 봉사 동아리에 가입하여 1년간 운영진으로 활동하였음"
@@ -65,7 +66,7 @@
             app:layout_constraintVertical_bias="0.338" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edtText5"
             android:layout_width="380dp"
             android:layout_height="50dp"
             android:text="남을 위해 봉사하는 것이 나에게 큰 행복을 준다는 것을 깨달음"
@@ -75,7 +76,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.402" />
-
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -96,6 +96,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </FrameLayout>

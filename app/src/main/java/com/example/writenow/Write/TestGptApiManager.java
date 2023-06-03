@@ -1,6 +1,10 @@
 package com.example.writenow.Write;
+
 import android.util.Log;
+
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -13,10 +17,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import org.json.JSONException;
-import org.json.JSONObject;
-public class ChatGptApiManager {
-    private static final String TAG = "ChatGptApiManager";
+
+public class TestGptApiManager {
+    private static final String TAG = "TestGptApiManager";
     private static final String API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static final OkHttpClient client = new OkHttpClient.Builder()
@@ -24,19 +27,19 @@ public class ChatGptApiManager {
             .readTimeout(90, TimeUnit.SECONDS)
             .build();
     private static final String MODEL_ID = "gpt-3.5-turbo";
-    private QuestionpageAdapter adapter;
+    private TestpageAdapter adapter;
 
-    private WriteStudentFragment writeStudentFragment;
+    private TestFragment testFragment;
 
 
 
-    public ChatGptApiManager(QuestionpageAdapter adapter, WriteStudentFragment writeStudentFragment) {
+    public TestGptApiManager(TestpageAdapter adapter, TestFragment testFragment) {
         this.adapter = adapter;
-        this.writeStudentFragment = writeStudentFragment;
+        this.testFragment = testFragment;
     }
 
 
-    public void sendUserInputToChatGpt(String userInput, int questionNumber) {
+    public void sendUserInputToChatGpt(String userInput, int testNumber) {
         JSONArray messagesArray = new JSONArray();
 
         // 사용자 입력 메시지 추가
@@ -47,7 +50,7 @@ public class ChatGptApiManager {
             messagesArray.put(userInputMessage);
         } catch (JSONException e) {
             Log.e(TAG, "Failed to create user input message: " + e.getMessage());
-            writeStudentFragment.handleChatGptResponse(null, questionNumber);
+            testFragment.handleChatGptResponse(null, testNumber);
             return;
         }
 
@@ -57,7 +60,7 @@ public class ChatGptApiManager {
             jsonObject.put("model", MODEL_ID);
         } catch (JSONException e) {
             Log.e(TAG, "Failed to create JSON request body: " + e.getMessage());
-            writeStudentFragment.handleChatGptResponse(null, questionNumber);
+            testFragment.handleChatGptResponse(null, testNumber);
             return;
         }
 
@@ -75,7 +78,7 @@ public class ChatGptApiManager {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e(TAG, "ChatGPT API request failed: " + e.toString());
-                writeStudentFragment.handleChatGptResponse(null, questionNumber);
+                testFragment.handleChatGptResponse(null, testNumber);
             }
 
             @Override
@@ -101,7 +104,7 @@ public class ChatGptApiManager {
                                         JSONObject messageObject = choiceObject.getJSONObject("message");
                                         if (messageObject.has("content")) {
                                             String text = messageObject.getString("content");
-                                            writeStudentFragment.handleChatGptResponse(text, questionNumber);
+                                            testFragment.handleChatGptResponse(text, testNumber);
                                             return;
                                         }
                                     }
@@ -123,7 +126,7 @@ public class ChatGptApiManager {
                     }
                 }
 
-                writeStudentFragment.handleChatGptResponse(null, questionNumber);
+                testFragment.handleChatGptResponse(null, testNumber);
             }
         });
     }

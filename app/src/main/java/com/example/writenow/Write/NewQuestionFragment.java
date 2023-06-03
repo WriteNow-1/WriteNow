@@ -26,7 +26,7 @@ import java.net.URL;
 public class NewQuestionFragment extends Fragment {
 
     private static final String API_ENDPOINT = "https://api.openai.com/v1/engines/davinci-codex/completions";
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "";
 
     private EditText userInputEditText;
     private Button sendButton;

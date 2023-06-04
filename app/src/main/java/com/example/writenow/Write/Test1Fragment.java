@@ -44,7 +44,7 @@ public class Test1Fragment extends Fragment {
                 String userInput3 = userInputEditText3.getText().toString();
 //                Toast.makeText(getActivity(), "사용자 입력: "+"\n전공:"+userMajor+"\n1:"+userInput1+"\n2:"+userInput2, Toast.LENGTH_SHORT).show();
                 sendUserInputToChatGpt("너는 좋은 assistant야" + userInput1 + "에 지원을 하려고 해" +
-                        "자기소개서 작성을 도와줬으면 좋겠어. 자기소개서 질문은" + userInput2 + "야." +
+                        "자기소개서 지원동기 작성을 도와줬으면 좋겠어. 지원동기 상세 질문은" + userInput2 + "야." +
                         "이 질문에 대한 나의 정보는" + userInput3 + ". 내가 준 정보들로만 구성하여 작성을 부탁해");
             }
         });

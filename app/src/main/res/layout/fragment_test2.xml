@@ -16,7 +16,7 @@
             android:id="@+id/textView5"
             android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:text="자기소개서 문항과 필요 정보를 입력해주시기 바랍니다."
+            android:text="문항과 필요 정보를 입력해주시기 바랍니다."
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

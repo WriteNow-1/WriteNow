@@ -30,9 +30,9 @@ public class Test2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_test2, container, false);
-        userInputEditText1 = view.findViewById(R.id.edtText1);
-        userInputEditText2 = view.findViewById(R.id.edtText2);
-        userInputEditText3 = view.findViewById(R.id.edtText3);
+        userInputEditText1 = view.findViewById(R.id.edtText4);
+        userInputEditText2 = view.findViewById(R.id.edtText5);
+        userInputEditText3 = view.findViewById(R.id.edtText6);
         submitButton = view.findViewById(R.id.submitButton);
 
         TestFragment parentFragment = (TestFragment) getParentFragment();
@@ -46,10 +46,11 @@ public class Test2Fragment extends Fragment {
             public void onClick(View v){
                 String userInput1 = userInputEditText1.getText().toString();
                 String userInput2 = userInputEditText2.getText().toString();
-                Toast.makeText(getActivity(), "사용자 입력: "+"\n1"+userInput1+"\n2:"+userInput2+"\n2:"+userInput2, Toast.LENGTH_SHORT).show();
-                sendUserInputToChatGpt("타인과 공동체를 위해 노력한 경험은 다음과 같다:"+userInput1
-                        +"그리고 배운 점은 다음과 같다:"+userInput2
-                        + "이를 가지고 고등학교 재학 기간 중 타인과 공동체를 위해 노력한 경험이나 이를 통해 배운 점을 기술해달라");
+                String userInput3 = userInputEditText3.getText().toString();
+                Toast.makeText(getActivity(), "사용자 입력: "+"\n1"+userInput1+"\n2:"+userInput2+"\n2:"+userInput3, Toast.LENGTH_SHORT).show();
+                sendUserInputToChatGpt("너는 좋은 assistant야" + userInput1 + "에 지원을 하려고 해" +
+                        "자기소개서 작성을 도와줬으면 좋겠어. 자기소개서 상세 질문은" + userInput2 + "야." +
+                        "이 질문에 대한 나의 정보는" + userInput3 + ". 내가 준 정보들로만 구성하여 작성을 부탁해");
             }
         });
 

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="회원 가입"
+                android:textColor="@color/main"
+                android:textStyle="bold"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="vertical" >
+
+<!--                <TextView-->
+<!--                    android:id="@+id/signNametext"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="5dp"-->
+<!--                    android:text="이름"-->
+<!--                    android:textColor="@color/main"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    />-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/editname"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:background="@drawable/main"-->
+<!--                    android:ems="10"-->
+<!--                    android:hint=" 이름"-->
+<!--                    android:inputType="textPersonName"-->
+<!--                    android:text="" />-->
+
+                <TextView
+                    android:id="@+id/signIDtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="아이디"
+                    android:textColor="@color/main"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/main"
+                    android:ems="10"
+                    android:hint=" 아이디"
+                    android:inputType="textPersonName"
+                    android:text="" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/signBirthtext"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="5dp"-->
+<!--                    android:text="생년월일"-->
+<!--                    android:textColor="@color/main"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <EditText-->
+<!--                        android:id="@+id/editbirth1"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:background="@drawable/main"-->
+<!--                        android:ems="10"-->
+<!--                        android:hint=" 년(4자)"-->
+<!--                        android:inputType="textPersonName"-->
+<!--                        android:text="" />-->
+<!--                    <EditText-->
+<!--                        android:id="@+id/editbirth2"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:background="@drawable/main"-->
+<!--                        android:ems="10"-->
+<!--                        android:hint=" 월"-->
+<!--                        android:inputType="textPersonName"-->
+<!--                        android:text="" />-->
+<!--                    <EditText-->
+<!--                        android:id="@+id/editbirth3"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        android:background="@drawable/main"-->
+<!--                        android:ems="10"-->
+<!--                        android:hint=" 일"-->
+<!--                        android:inputType="textPersonName"-->
+<!--                        android:text="" />-->
+<!--                </LinearLayout>-->
+
+                <TextView
+                    android:id="@+id/signPWtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="비밀번호"
+                    android:textColor="@color/main"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/editpw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/main"
+                    android:ems="10"
+                    android:hint=" 비밀번호"
+                    android:inputType="textPassword"
+                    android:text="" />
+
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signupbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="350dp"
+            android:layout_gravity="center|bottom"
+
+            android:background="@drawable/button"
+
+            android:text="회원가입"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

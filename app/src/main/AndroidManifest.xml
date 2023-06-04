@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
-
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -14,12 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WriteNow"
         tools:targetApi="31">
-        <activity android:name=".MainActivity">
-
-
+        <activity android:name=".Login.LoginActivity">
         </activity>
-
-
+        <activity android:name=".Login.RegisterActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -31,14 +30,12 @@
         </activity>
         <activity
             android:name=".Write.ResultActivity"
-            android:label="Result Activity">
-        </activity>
+            android:label="Result Activity"></activity>
+        <activity android:name=".Write.TestActivity"></activity>
 
-        <activity android:name=".Write.TestActivity">
-
-
-        </activity>
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
 </manifest>

@@ -5,6 +5,35 @@
     android:layout_height="match_parent"
     tools:context=".Set.SetFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WriteNow"
+        android:textColor="@color/main"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="버전 1.0"
+        android:textColor="@color/main"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_gravity="top|right"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/button"
+        android:textColor="@color/white"
+        android:layout_marginTop="550dp"
+        android:text="로그아웃"/>
 
 
 </FrameLayout>

@@ -37,7 +37,7 @@ public class Test2Fragment extends Fragment {
 
         TestFragment parentFragment = (TestFragment) getParentFragment();
         testGptApiManager = parentFragment.getChatGptApiManager();
-        // ChatGptApiManager 인스턴스를 WriteStudentFragment로부터 가져옴
+        // ChatGptApiManager 인스턴스를 TestFragment로부터 가져옴
 
 
 
@@ -47,7 +47,7 @@ public class Test2Fragment extends Fragment {
                 String userInput1 = userInputEditText1.getText().toString();
                 String userInput2 = userInputEditText2.getText().toString();
                 String userInput3 = userInputEditText3.getText().toString();
-                Toast.makeText(getActivity(), "사용자 입력: "+"\n1"+userInput1+"\n2:"+userInput2+"\n2:"+userInput3, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "사용자 입력을 바탕으로 생성 중", Toast.LENGTH_SHORT).show();
                 sendUserInputToChatGpt("너는 좋은 assistant야" + userInput1 + "에 지원을 하려고 해" +
                         "자기소개서 작성을 도와줬으면 좋겠어. 자기소개서 상세 질문은" + userInput2 + "야." +
                         "이 질문에 대한 나의 정보는" + userInput3 + ". 내가 준 정보들로만 구성하여 작성을 부탁해");
@@ -63,15 +63,15 @@ public class Test2Fragment extends Fragment {
     }
 
     public void setResponseText(String response) {
-        Log.d("Question1Fragment", "받은 응답: " + response);
+        Log.d("Test2Fragment", "받은 응답: " + response);
 
         if (getActivity() != null) {
-            Log.d("Question1Fragment", "액티비티가 null이 아닙니다");
+            Log.d("Test2Fragment", "액티비티가 null이 아닙니다");
 
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    // Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
+                     Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
 
                     // ResultActivity를 호출하고 결과를 전달
                     Intent intent = new Intent(getActivity(), ResultActivity.class);
@@ -81,7 +81,7 @@ public class Test2Fragment extends Fragment {
             });
 
         } else {
-            Log.d("Question1Fragment", "액티비티가 null입니다");
+            Log.d("Test2Fragment", "액티비티가 null입니다");
         }
     }
 

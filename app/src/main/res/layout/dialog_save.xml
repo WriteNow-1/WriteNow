@@ -10,7 +10,7 @@
         android:id="@+id/universityEditText"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:hint="대학교 이름을 입력하세요"
+        android:hint="자소서ㅅ 이름을 입력하세요"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText

@@ -79,7 +79,7 @@
             android:layout_height="90dp"
             android:layout_marginTop="52dp"
             android:background="@drawable/button"
-            android:text="신입 사원 자소서"
+            android:text="취업 자소서"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -91,6 +91,7 @@
             app:layout_constraintVertical_bias="0.58" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:visibility="invisible"
             android:id="@+id/OldBtn"
             android:layout_width="300dp"
             android:layout_height="90dp"

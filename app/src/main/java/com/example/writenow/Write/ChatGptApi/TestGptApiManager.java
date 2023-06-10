@@ -73,7 +73,7 @@ public class TestGptApiManager {
 
         Request request = new Request.Builder()
                 .url(API_ENDPOINT)
-                .addHeader("Authorization", "Bearer " + "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")
+                .addHeader("Authorization", "Bearer " + "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")
                 .post(body)
                 .build();
 
